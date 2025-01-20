@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta name="author" content="@joyzinhw">
+    <meta name="description" content="portfolio">
+    <meta name="keywords" content="sites, bio, linkbio, hospital, chamada">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="/assets/imagens/LOGO.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+	<script src="/assets/js/jquery-3.3.1.min.js"></script>
+	<script src="/assets/js/scripts.js"></script>
+	
+	<title>Chamada</title>
+
+
+</head>
+
+<body>
+	<div class="barraTop">&nbsp;</div>
+	<div class="container page">
+		<div class="row barraSuperior">
+			<div class="col-xs-1">
+				<img src="/assets/imagens/LOGO HOSPITAL ANIZINHA (3).png" class="uespiLogo">
+			</div>
+			<div class="col-xs-11" style="text-align: right;">
+				<span class="uespiTexto">NUMERO DE SENHAS</span><br>
+				<span class="subtitulo">Espere sua vez ser chamada!</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="senhaAtual">
+				<div class="row">
+					<div class="col-xs-5 col-xs-offset-1" style="text-align: right;"><br><br>
+						<span class="senhaAtualTexto">SENHA &nbsp;</span>
+					</div>
+					<div class="col-xs-5" style="text-align: left;">
+						<span id="senhaAtualNumero">00</span>
+					</div>
+					<input type="hidden" id="senhaNormal" value="00">
+					<input type="hidden" id="senhaPrioridade" value="P00">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4 ultimaSenha">
+				<br>
+				<span id="ultimaSenhaTexto">ÚLTIMA CHAMADA</span><br>
+				<span>Senha </span>
+				<span id="ultimaSenhaNumero">00</span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4 senhasAnteriores">
+				<br>
+				<span id="senhasAnterioresTexto">SENHAS ANTERIORES</span><br>
+				<span id="senhasAnterioresLista">00, 00, 00</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
