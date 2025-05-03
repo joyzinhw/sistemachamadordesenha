@@ -69,9 +69,10 @@
 
 let senhaAtual = 0;
 let ultimaSenha = 0;
+let senhaPrioritariaAtual = 0;
 let senhasAnteriores = [];
 
-function atualizarSenha() {
+function atualizarSenha(mensagem = null) {
     document.getElementById('senhaAtualNumero').innerText = senhaAtual.toString().padStart(2, '0');
     document.getElementById('ultimaSenhaNumero').innerText = ultimaSenha.toString().padStart(2, '0');
 
@@ -81,7 +82,8 @@ function atualizarSenha() {
 
     document.getElementById('senhasAnterioresLista').innerText = senhasAnteriores.join(', ');
 
-    const utterance = new SpeechSynthesisUtterance("A senha chamada é " + senhaAtual.toString().padStart(2, '0'));
+    const texto = mensagem || "A senha chamada é " + senhaAtual.toString().padStart(2, '0');
+    const utterance = new SpeechSynthesisUtterance(texto);
     utterance.lang = "pt-BR";
     speechSynthesis.speak(utterance);
 }
@@ -101,14 +103,27 @@ function chamarSenhaAnterior() {
     }
 }
 
+function chamarSenhaPrioritaria() {
+    senhaPrioritariaAtual++;
+    const senha = "P" + senhaPrioritariaAtual.toString().padStart(2, '0');
+    atualizarSenha("A senha prioritária chamada é " + senha);
+}
+
 function chamarComCliqueMouse() {
     document.body.addEventListener('mousedown', (event) => {
         if (event.button === 0) {
-            // Botão esquerdo
+            // Botão esquerdo - próxima senha
             chamarProximaSenha();
         } else if (event.button === 2) {
-            // Botão direito
+            // Botão direito - senha anterior
             chamarSenhaAnterior();
+        }
+    });
+
+    document.body.addEventListener('dblclick', (event) => {
+        if (event.button === 0) {
+            // Clique duplo com botão esquerdo - senha prioritária
+            chamarSenhaPrioritaria();
         }
     });
 
